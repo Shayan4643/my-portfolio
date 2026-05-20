@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { 
@@ -11,22 +11,10 @@ import {
 import { 
   MessageCircle, 
   Download,
-  Loader2,
   Mail
 } from "lucide-react";
 
 export const Footer = () => {
-  const [isDownloading, setIsDownloading] = useState(false);
-
-  const handleDownloadCV = () => {
-    setIsDownloading(true);
-    // Simulate download delay
-    setTimeout(() => {
-      setIsDownloading(false);
-      // In a real app, this would trigger the actual file download
-      alert("CV Download Started! (Simulation)");
-    }, 2000);
-  };
 
   const whatsappLink = "https://wa.me/+923464344400?text=Hello%20Shayan,%20I'm%20interested%20in%20your%20services!";
 
@@ -91,25 +79,15 @@ export const Footer = () => {
               Download my latest CV to see a detailed breakdown of my experience and certifications.
             </p>
 
-            <button
-              onClick={handleDownloadCV}
-              disabled={isDownloading}
-              className="group relative flex items-center gap-3 overflow-hidden rounded-full bg-foreground px-8 py-4 font-bold text-background transition-all hover:scale-105 disabled:opacity-70"
+            <a
+              href="/MY_RESUME.pdf"
+              download="Shayan_Ansari_Resume.pdf"
+              className="group relative flex items-center gap-3 overflow-hidden rounded-full bg-foreground px-8 py-4 font-bold text-background transition-all hover:scale-105"
             >
-              {isDownloading ? (
-                <>
-                  <Loader2 className="h-5 w-5 animate-spin" />
-                  Preparing...
-                </>
-              ) : (
-                <>
-                  <Download className="h-5 w-5 transition-transform group-hover:-translate-y-1" />
-                  Download CV
-                </>
-              )}
-              {/* Liquid Fill Animation placeholder */}
+              <Download className="h-5 w-5 transition-transform group-hover:-translate-y-1" />
+              Download CV
               <div className="absolute inset-0 -z-10 bg-primary/20 translate-y-full transition-transform group-hover:translate-y-0" />
-            </button>
+            </a>
 
             <p className="mt-6 text-sm text-slate-500 italic">
               * Optimized for professional review

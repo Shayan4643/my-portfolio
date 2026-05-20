@@ -61,12 +61,13 @@ export const Header = () => {
               {link.name}
             </button>
           ))}
-          <button
-            onClick={() => window.alert("CV Download Started!")}
+          <a
+            href="/MY_RESUME.pdf"
+            download="Shayan_Ansari_Resume.pdf"
             className="rounded-full bg-primary/10 border border-primary/20 px-5 py-2 text-sm font-semibold text-primary hover:bg-primary hover:text-background transition-all"
           >
             Download CV
-          </button>
+          </a>
         </nav>
 
         {/* Mobile Toggle */}
@@ -97,15 +98,14 @@ export const Header = () => {
                   {link.name}
                 </button>
               ))}
-              <button
-                onClick={() => {
-                  window.alert("CV Download Started!");
-                  setMobileMenuOpen(false);
-                }}
-                className="w-full rounded-xl bg-primary py-3 font-bold text-background"
+              <a
+                href="/MY_RESUME.pdf"
+                download="Shayan_Ansari_Resume.pdf"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full rounded-xl bg-primary py-3 font-bold text-background text-center block"
               >
                 Download CV
-              </button>
+              </a>
             </nav>
           </motion.div>
         )}
