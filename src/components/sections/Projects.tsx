@@ -44,19 +44,19 @@ const projects = [
 
 export const Projects = () => {
   return (
-    <section id="projects" className="py-24 px-6 md:px-12 lg:px-20">
+    <section id="projects" className="py-16 sm:py-24 px-4 sm:px-6 md:px-12 lg:px-20">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-16 text-center"
+          className="mb-12 sm:mb-16 text-center"
         >
-          <h2 className="text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">Featured Projects</h2>
-          <p className="mt-4 text-slate-400">A showcase of my recent engineering endeavors.</p>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">Featured Projects</h2>
+          <p className="mt-4 text-sm sm:text-base text-slate-400">A showcase of my recent engineering endeavors.</p>
         </motion.div>
 
-        <div className="grid gap-12 md:grid-cols-2">
+        <div className="grid gap-6 sm:gap-8 md:gap-12 sm:grid-cols-2">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -66,19 +66,19 @@ export const Projects = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               <GlassCard className="group flex flex-col h-full overflow-hidden p-0 border-white/5 bg-white/[0.01]">
-                <div className="relative h-64 w-full overflow-hidden">
+                <div className="relative h-48 sm:h-56 md:h-64 w-full overflow-hidden">
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, 50vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-60" />
                 </div>
 
-                <div className="flex flex-col flex-1 p-8">
-                  <div className="mb-4 flex flex-wrap gap-2">
+                <div className="flex flex-col flex-1 p-5 sm:p-8">
+                  <div className="mb-3 sm:mb-4 flex flex-wrap gap-2">
                     {project.tech.map((t) => (
                       <span
                         key={t}
@@ -88,13 +88,13 @@ export const Projects = () => {
                       </span>
                     ))}
                   </div>
-                  <h3 className="mb-3 text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
+                  <h3 className="mb-2 sm:mb-3 text-xl sm:text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
-                  <p className="mb-8 text-slate-400 leading-relaxed flex-1">
+                  <p className="mb-6 sm:mb-8 text-sm sm:text-base text-slate-400 leading-relaxed flex-1">
                     {project.desc}
                   </p>
-                  
+
                   <div className="flex flex-wrap items-center justify-between gap-4">
                     <Link
                       href={`/projects/${project.slug}`}
@@ -103,7 +103,7 @@ export const Projects = () => {
                       See more details
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Link>
-                    
+
                     <a
                       href={project.link}
                       target="_blank"

@@ -2,18 +2,18 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { 
-  FaHtml5, 
-  FaCss3Alt, 
-  FaBootstrap, 
-  FaNodeJs, 
+import {
+  FaHtml5,
+  FaCss3Alt,
+  FaBootstrap,
+  FaNodeJs,
   FaJs,
   FaJava,
   FaGithub,
-  FaGitAlt
+  FaGitAlt,
 } from "react-icons/fa";
-import { 
-  SiReact, 
+import {
+  SiReact,
   SiTypescript,
   SiTailwindcss,
   SiNextdotjs,
@@ -76,32 +76,32 @@ const skillCategories = [
 
 export const Skills = () => {
   return (
-    <section id="skills" className="py-24 px-6 md:px-12 lg:px-20 bg-white/[0.01]">
+    <section id="skills" className="py-16 sm:py-24 px-4 sm:px-6 md:px-12 lg:px-20 bg-white/[0.01]">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="mb-16 text-center"
+          className="mb-12 sm:mb-16 text-center"
         >
-          <h2 className="text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">Technical Arsenal</h2>
-          <p className="mt-4 text-slate-400">Categorized tools and technologies I use to build robust software.</p>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">Technical Arsenal</h2>
+          <p className="mt-4 text-sm sm:text-base text-slate-400">Categorized tools and technologies I use to build robust software.</p>
         </motion.div>
 
-        <div className="grid gap-12">
+        <div className="grid gap-10 sm:gap-12">
           {skillCategories.map((category, catIndex) => (
             <div key={category.title}>
-              <motion.h3 
+              <motion.h3
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: catIndex * 0.1 }}
-                className="mb-8 text-xl font-semibold text-primary/80 uppercase tracking-widest"
+                className="mb-6 sm:mb-8 text-sm sm:text-base font-semibold text-primary/80 uppercase tracking-widest"
               >
                 {category.title}
               </motion.h3>
-              
-              <div className="flex flex-wrap gap-8 lg:gap-12">
+
+              <div className="flex flex-wrap gap-6 sm:gap-8 lg:gap-12">
                 {category.skills.map((skill, index) => (
                   <motion.div
                     key={skill.name}
@@ -112,27 +112,22 @@ export const Skills = () => {
                       type: "spring",
                       stiffness: 100,
                       damping: 10,
-                      delay: (catIndex * 0.1) + (index * 0.05),
+                      delay: catIndex * 0.1 + index * 0.05,
                     }}
-                    whileHover={{ 
-                      scale: 1.1, 
-                      y: -5,
-                      transition: { duration: 0.2 }
-                    }}
-                    className="flex flex-col items-center gap-3"
+                    whileHover={{ scale: 1.1, y: -5, transition: { duration: 0.2 } }}
+                    className="flex flex-col items-center gap-2 sm:gap-3"
                   >
-                    <div 
-                      className="group relative flex h-16 w-16 items-center justify-center rounded-xl bg-white/5 text-3xl transition-all duration-300 hover:bg-white/10"
+                    <div
+                      className="group relative flex h-12 w-12 sm:h-16 sm:w-16 items-center justify-center rounded-xl bg-white/5 text-2xl sm:text-3xl transition-all duration-300 hover:bg-white/10"
                       style={{ color: skill.color }}
                     >
-                      {/* Glow Effect */}
-                      <div 
+                      <div
                         className="absolute inset-0 -z-10 rounded-xl blur-xl opacity-0 transition-opacity duration-300 group-hover:opacity-20"
                         style={{ backgroundColor: skill.color }}
                       />
                       {skill.icon}
                     </div>
-                    <span className="text-xs font-medium text-slate-500 group-hover:text-foreground">
+                    <span className="text-xs font-medium text-slate-500 text-center">
                       {skill.name}
                     </span>
                   </motion.div>
